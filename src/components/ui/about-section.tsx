@@ -2,7 +2,6 @@
 
 import React, { useState } from "react"
 import { motion } from "framer-motion"
-import { CustomCursorTarget } from "./custom-cursor"
 import { 
   Mail, 
   Phone, 
@@ -125,15 +124,13 @@ export function AboutSection() {
         {/* ========================================================= */}
         <aside className="md:col-span-5 lg:col-span-4 md:sticky md:top-6 flex flex-col space-y-6">
           {/* Authentic Portrait Image Frame with grayscale-to-color hover interaction */}
-          <CustomCursorTarget size="lg">
-            <div className="relative aspect-[2/3] sm:aspect-[3/4] w-full rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-sm group cursor-pointer">
-              <img
-                src="/images/tanvi-about-profile.jpg"
-                alt="Tanvi Deshmukh"
-                className="w-full h-full object-cover object-center select-none grayscale contrast-[1.05] brightness-95 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100 group-hover:scale-[1.03] transition-all duration-500 ease-out filter"
-              />
-            </div>
-          </CustomCursorTarget>
+          <div className="relative aspect-[2/3] sm:aspect-[3/4] w-full rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-sm group cursor-pointer">
+            <img
+              src="/images/tanvi-about-profile.jpg"
+              alt="Tanvi Deshmukh"
+              className="w-full h-full object-cover object-center select-none grayscale contrast-[1.05] brightness-95 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100 group-hover:scale-[1.03] transition-all duration-500 ease-out filter"
+            />
+          </div>
 
           {/* Designer Bio Meta */}
           <div className="space-y-1">
@@ -205,46 +202,44 @@ export function AboutSection() {
 
               {/* Download Resume Action (Directly below phone number) */}
               <div className="pt-2 border-t border-zinc-100 dark:border-zinc-800/80">
-                <CustomCursorTarget size="md">
-                  <motion.a
-                    href="/Tanvi_Deshmukh_Resume.pdf"
-                    download="Tanvi_Deshmukh_Resume.pdf"
-                    onClick={handleDownload}
-                    whileHover={{ scale: 1.02, y: -1 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="relative w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 text-xs font-medium shadow-sm hover:bg-[#8b0a0a] dark:hover:bg-[#ef4444] dark:hover:text-white transition-all duration-300 group overflow-hidden cursor-pointer select-none border border-transparent dark:border-zinc-700/50"
-                    title="Download Tanvi Deshmukh's Resume (PDF)"
-                  >
-                    {/* Hover light beam effect */}
-                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 dark:via-black/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+                <motion.a
+                  href="/Tanvi_Deshmukh_Resume.pdf"
+                  download="Tanvi_Deshmukh_Resume.pdf"
+                  onClick={handleDownload}
+                  whileHover={{ scale: 1.02, y: -1 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="relative w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 text-xs font-medium shadow-sm hover:bg-[#8b0a0a] dark:hover:bg-[#ef4444] dark:hover:text-white transition-all duration-300 group overflow-hidden cursor-pointer select-none border border-transparent dark:border-zinc-700/50"
+                  title="Download Tanvi Deshmukh's Resume (PDF)"
+                >
+                  {/* Hover light beam effect */}
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 dark:via-black/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
 
-                    <div className="flex items-center gap-2 relative z-10">
-                      {downloadState === "downloaded" ? (
-                        <>
-                          <Check className="w-4 h-4 text-emerald-400 dark:text-emerald-600 stroke-[2.5]" />
-                          <span className="text-emerald-400 dark:text-emerald-600 font-semibold">Resume Downloaded!</span>
-                        </>
-                      ) : downloadState === "downloading" ? (
-                        <>
-                          <svg className="animate-spin w-4 h-4 text-zinc-300 dark:text-zinc-600" viewBox="0 0 24 24" fill="none">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                          </svg>
-                          <span className="font-medium">Downloading...</span>
-                        </>
-                      ) : (
-                        <>
-                          <Download className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5" />
-                          <span className="font-semibold">Download Resume</span>
-                        </>
-                      )}
-                    </div>
+                  <div className="flex items-center gap-2 relative z-10">
+                    {downloadState === "downloaded" ? (
+                      <>
+                        <Check className="w-4 h-4 text-emerald-400 dark:text-emerald-600 stroke-[2.5]" />
+                        <span className="text-emerald-400 dark:text-emerald-600 font-semibold">Resume Downloaded!</span>
+                      </>
+                    ) : downloadState === "downloading" ? (
+                      <>
+                        <svg className="animate-spin w-4 h-4 text-zinc-300 dark:text-zinc-600" viewBox="0 0 24 24" fill="none">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span className="font-medium">Downloading...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Download className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+                        <span className="font-semibold">Download Resume</span>
+                      </>
+                    )}
+                  </div>
 
-                    <span className="relative z-10 text-[10px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded bg-white/15 dark:bg-zinc-900/10 group-hover:bg-white/25 dark:group-hover:bg-white/20 transition-colors">
-                      PDF
-                    </span>
-                  </motion.a>
-                </CustomCursorTarget>
+                  <span className="relative z-10 text-[10px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded bg-white/15 dark:bg-zinc-900/10 group-hover:bg-white/25 dark:group-hover:bg-white/20 transition-colors">
+                    PDF
+                  </span>
+                </motion.a>
               </div>
             </div>
           </div>

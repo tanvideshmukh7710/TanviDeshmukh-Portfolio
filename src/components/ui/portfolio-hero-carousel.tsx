@@ -10,9 +10,7 @@ import {
 import { PdfPortfolioModal, PortfolioProject } from "./pdf-portfolio-modal"
 import { Tabs, ITab } from "./tabs"
 import { AboutSection } from "./about-section"
-import { CustomCursor, CustomCursorTarget } from "./custom-cursor"
 import { FlipLink } from "./flip-links"
-import { SonarGrid } from "./sonar-grid"
 import { ThemeToggle } from "./theme-toggle"
 import { Skiper49 } from "./skiper49"
 import { KineticText } from "./kinetic-text"
@@ -282,28 +280,26 @@ const CarouselBehindSubject = memo(
               }}
             >
               {/* PURE BORDERLESS SQUARED IMAGE WITH SLIGHTLY ROUNDED CORNERS */}
-              <CustomCursorTarget size="lg">
-                <button
-                  type="button"
-                  onMouseEnter={() => {
-                    const el = document.getElementById("activeProjectTitle")
-                    if (el) el.textContent = proj.title
-                  }}
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    onSelectProject(proj)
-                  }}
-                  className="w-[210px] h-[210px] sm:w-[250px] sm:h-[250px] md:w-[280px] md:h-[280px] rounded-2xl sm:rounded-3xl shadow-[0_16px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_24px_55px_rgba(0,0,0,0.25)] hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer select-none border-0 p-0 m-0 outline-none pointer-events-auto bg-transparent"
-                  aria-label={`View Case Study for ${proj.title}`}
-                >
-                  <img
-                    src={proj.image}
-                    alt={proj.title}
-                    className="w-full h-full object-cover rounded-2xl sm:rounded-3xl border-0 pointer-events-none block"
-                    loading="eager"
-                  />
-                </button>
-              </CustomCursorTarget>
+              <button
+                type="button"
+                onMouseEnter={() => {
+                  const el = document.getElementById("activeProjectTitle")
+                  if (el) el.textContent = proj.title
+                }}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onSelectProject(proj)
+                }}
+                className="w-[210px] h-[210px] sm:w-[250px] sm:h-[250px] md:w-[280px] md:h-[280px] rounded-2xl sm:rounded-3xl shadow-[0_16px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_24px_55px_rgba(0,0,0,0.25)] hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer select-none border-0 p-0 m-0 outline-none pointer-events-auto bg-transparent"
+                aria-label={`View Case Study for ${proj.title}`}
+              >
+                <img
+                  src={proj.image}
+                  alt={proj.title}
+                  className="w-full h-full object-cover rounded-2xl sm:rounded-3xl border-0 pointer-events-none block"
+                  loading="eager"
+                />
+              </button>
             </motion.div>
           ))}
         </motion.div>
@@ -370,51 +366,28 @@ export function PortfolioHeroCarousel({
   }
 
   return (
-    <CustomCursor
-      color={theme === "dark" ? "#ef4444" : "#8b0a0a"}
-      followDamping={22}
-      followStiffness={150}
-      className={`relative w-screen h-screen overflow-hidden bg-white dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 select-none flex flex-col transition-colors duration-300 ${className}`}
+    <div
+      className={`relative w-screen h-screen overflow-hidden bg-white dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 flex flex-col transition-colors duration-300 ${className}`}
     >
-      {/* Constant SonarGrid Background Field (crisp visible dots & expanding wave ripples) */}
-      <SonarGrid
-        className="absolute inset-0 size-full pointer-events-auto z-0 cursor-default"
-        color={theme === "dark" ? "#ffffff" : "#8b0a0a"}
-        interactive={true}
-        spacing={26}
-        dotRadius={1.6}
-        baseOpacity={0.35}
-        amplitude={2.2}
-        ringWidth={90}
-        speed={260}
-        pingEvery={2.4}
-      />
-
-      {/* SonarGrid canvas sits cleanly on flat minimal background with zero white-section gradients */}
-
       {/* Brand Logo: Top-Left Corner (Transparent TD Logo) */}
       <div className="fixed top-3 sm:top-4 left-4 sm:left-6 z-50">
-        <CustomCursorTarget size="sm">
-          <button 
-            type="button" 
-            onClick={() => setSelectedTab("home")}
-            className="h-9 sm:h-11 w-auto block focus:outline-none transition-transform hover:scale-105 cursor-pointer"
-            aria-label="Home"
-          >
-            <img 
-              src="/images/td-logo.png" 
-              alt="TD Logo" 
-              className="h-9 sm:h-11 w-auto object-contain"
-            />
-          </button>
-        </CustomCursorTarget>
+        <button 
+          type="button" 
+          onClick={() => setSelectedTab("home")}
+          className="h-9 sm:h-11 w-auto block focus:outline-none transition-transform hover:scale-105 cursor-pointer"
+          aria-label="Home"
+        >
+          <img 
+            src="/images/td-logo.png" 
+            alt="TD Logo" 
+            className="h-9 sm:h-11 w-auto object-contain"
+          />
+        </button>
       </div>
 
       {/* Theme Switcher: Top-Right Corner */}
       <div className="fixed top-3 sm:top-4 right-4 sm:right-6 z-50">
-        <CustomCursorTarget size="sm">
-          <ThemeToggle theme={theme} onToggle={toggleTheme} />
-        </CustomCursorTarget>
+        <ThemeToggle theme={theme} onToggle={toggleTheme} />
       </div>
 
       {/* ========================================================= */}
@@ -519,46 +492,38 @@ export function PortfolioHeroCarousel({
       {selectedTab === "contact" && (
         <div className="flex-1 w-full overflow-y-auto bg-transparent p-6 sm:p-12 flex flex-col items-center justify-center">
           <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 text-center select-none py-8">
-            <CustomCursorTarget size="lg">
-              <FlipLink
-                href="https://www.linkedin.com/in/tanvi-deshmukh-95646341a/"
-                target="_blank"
-                className="text-5xl sm:text-7xl md:text-8xl lg:text-[105px]"
-              >
-                Linkedin
-              </FlipLink>
-            </CustomCursorTarget>
+            <FlipLink
+              href="https://www.linkedin.com/in/tanvi-deshmukh-95646341a/"
+              target="_blank"
+              className="text-5xl sm:text-7xl md:text-8xl lg:text-[105px]"
+            >
+              Linkedin
+            </FlipLink>
 
-            <CustomCursorTarget size="lg">
-              <FlipLink
-                href="https://www.instagram.com/damn.tanvi/"
-                target="_blank"
-                className="text-5xl sm:text-7xl md:text-8xl lg:text-[105px]"
-              >
-                Instagram
-              </FlipLink>
-            </CustomCursorTarget>
+            <FlipLink
+              href="https://www.instagram.com/damn.tanvi/"
+              target="_blank"
+              className="text-5xl sm:text-7xl md:text-8xl lg:text-[105px]"
+            >
+              Instagram
+            </FlipLink>
 
-            <CustomCursorTarget size="lg">
-              <FlipLink
-                onClick={() => {
-                  window.location.href = "mailto:tanvideshmukh7710@gmail.com"
-                  setContactModalType("email")
-                }}
-                className="text-5xl sm:text-7xl md:text-8xl lg:text-[105px] cursor-pointer"
-              >
-                Gmail
-              </FlipLink>
-            </CustomCursorTarget>
+            <FlipLink
+              onClick={() => {
+                window.location.href = "mailto:tanvideshmukh7710@gmail.com"
+                setContactModalType("email")
+              }}
+              className="text-5xl sm:text-7xl md:text-8xl lg:text-[105px] cursor-pointer"
+            >
+              Gmail
+            </FlipLink>
 
-            <CustomCursorTarget size="lg">
-              <FlipLink
-                onClick={() => setContactModalType("phone")}
-                className="text-5xl sm:text-7xl md:text-8xl lg:text-[105px] cursor-pointer"
-              >
-                Phone
-              </FlipLink>
-            </CustomCursorTarget>
+            <FlipLink
+              onClick={() => setContactModalType("phone")}
+              className="text-5xl sm:text-7xl md:text-8xl lg:text-[105px] cursor-pointer"
+            >
+              Phone
+            </FlipLink>
           </div>
         </div>
       )}
@@ -659,6 +624,6 @@ export function PortfolioHeroCarousel({
           </div>
         </div>
       )}
-    </CustomCursor>
+    </div>
   )
 }
