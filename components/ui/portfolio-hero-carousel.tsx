@@ -201,18 +201,23 @@ const CarouselBehindSubject = memo(
       }
     }, [isCarouselActive, rotation])
 
-    // Update active project title dynamically as carousel turns
+    // Update active project title dynamically as carousel turns (DOM update to prevent 60fps React re-renders)
     useEffect(() => {
+      let lastIndex = -1
       const unsubscribe = rotation.on("change", (latest: number) => {
         const normalizedAngle = ((-latest % 360) + 360) % 360
         const anglePerCard = 360 / faceCount
         const activeIndex = Math.round(normalizedAngle / anglePerCard) % faceCount
-        if (projects[activeIndex]) {
-          onHoverProject(projects[activeIndex].title)
+        if (activeIndex !== lastIndex && projects[activeIndex]) {
+          lastIndex = activeIndex
+          const el = document.getElementById("activeProjectTitle")
+          if (el) {
+            el.textContent = projects[activeIndex].title
+          }
         }
       })
       return () => unsubscribe()
-    }, [rotation, faceCount, projects, onHoverProject])
+    }, [rotation, faceCount, projects])
 
     useEffect(() => {
       const handleWheel = (e: WheelEvent) => {
@@ -280,7 +285,10 @@ const CarouselBehindSubject = memo(
               <CustomCursorTarget size="lg">
                 <button
                   type="button"
-                  onMouseEnter={() => onHoverProject(proj.title)}
+                  onMouseEnter={() => {
+                    const el = document.getElementById("activeProjectTitle")
+                    if (el) el.textContent = proj.title
+                  }}
                   onClick={(e) => {
                     e.stopPropagation()
                     onSelectProject(proj)
@@ -447,8 +455,11 @@ export function PortfolioHeroCarousel({
               />
             </div>
             {/* ACTIVE TITLE: Clean, Centered, between "PORTFOLIO" and the Carousel */}
-            <p className="text-sm sm:text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-100 tracking-normal text-center transition-all duration-300 font-sans pointer-events-none">
-              {activeTitle}
+            <p 
+              id="activeProjectTitle" 
+              className="text-sm sm:text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-100 tracking-normal text-center transition-all duration-300 font-sans pointer-events-none"
+            >
+              {projects[0]?.title || ""}
             </p>
           </header>
 
