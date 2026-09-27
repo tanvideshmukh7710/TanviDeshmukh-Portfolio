@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@300..700&family=Syne:wght@700;800&family=Archivo+Black&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.75rem;
+
+    --ds-gray-200: hsla(0, 0%, 92%, 1);
+    --ds-gray-900: hsla(0, 0%, 40%, 1);
+    --ds-gray-1000: hsla(0, 0%, 9%, 1);
+    --ds-gray-alpha-200: hsla(0, 0%, 0%, 0.08);
+    --accents-2: #eaeaea;
+    --ds-background-100: hsla(0, 0%, 100%, 1);
+    --geist-success: #0070f3;
+    --geist-error: #ee0000;
+    --geist-warning: #f5a623;
+    --geist-violet: #7928ca;
+    --geist-foreground: #000;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --ds-gray-200: hsla(0, 0%, 12%, 1);
+    --ds-gray-900: hsla(0, 0%, 63%, 1);
+    --ds-gray-1000: hsla(0, 0%, 93%, 1);
+    --ds-gray-alpha-200: hsla(0, 0%, 100%, 0.09);
+    --accents-2: #333333;
+    --ds-background-100: hsla(0, 0%, 4%, 1);
+    --geist-error: #ff0000;
+    --geist-foreground: #fff;
+  }
+}
+
+/* Custom font aliases matching Canva Body Grotesque Fit and Agrandir */
+.font-body-grotesque {
+  font-family: "Body Grotesque Fit", "Body Grotesque", "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-agrandir {
+  font-family: "Agrandir", "Agrandir Grand Heavy", "Syne", "Archivo Black", "Arial Black", sans-serif;
+  letter-spacing: -0.053em;
+  line-height: 0.85;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: var(--geist-foreground);
+  overflow-x: hidden;
+}
+
+/* Kinetic Text Component Styling */
+.kinetic-text {
+  --hover-padding: calc(1em / 12);
+  --text-stroke-width: calc(1em * 125 / 6000);
+  font-optical-sizing: auto;
+}
+
+.kinetic-text-letter {
+  display: inline-block;
+  will-change: font-weight, -webkit-text-stroke-width, padding;
+  -webkit-text-stroke-color: transparent;
+  -webkit-text-stroke-width: var(--text-stroke-width);
+  transition: font-weight 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+              -webkit-text-stroke-color 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+              -webkit-text-stroke-width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+              padding 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Hovered character */
+.kinetic-text-letter:hover {
+  padding-inline: var(--hover-padding);
+  font-weight: 900 !important;
+  -webkit-text-stroke-color: currentColor;
+  -webkit-text-stroke-width: calc(var(--text-stroke-width) * 2);
+}
+
+/* Right adjacent letter (1 away) */
+.kinetic-text-letter:hover + .kinetic-text-letter {
+  padding-inline: var(--hover-padding);
+  font-weight: 600 !important;
+}
+
+/* Right adjacent letter (2 away) */
+.kinetic-text-letter:hover + .kinetic-text-letter + .kinetic-text-letter {
+  font-weight: 400 !important;
+}
+
+/* Left adjacent letter (1 away) */
+.kinetic-text-letter:has(+ .kinetic-text-letter:hover) {
+  padding-inline: var(--hover-padding);
+  font-weight: 600 !important;
+}
+
+/* Left adjacent letter (2 away) */
+.kinetic-text-letter:has(+ .kinetic-text-letter + .kinetic-text-letter:hover) {
+  font-weight: 400 !important;
+}
