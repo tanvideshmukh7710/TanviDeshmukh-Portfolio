@@ -223,6 +223,12 @@ function CustomCursor({
       const target = event.target as HTMLElement | null;
       if (target?.closest('[data-cursor="explore"]')) {
         setCursorMode("explore");
+      } else if (
+        target?.closest('[data-cursor="target"]') ||
+        target?.closest("a") ||
+        target?.closest("button")
+      ) {
+        setIsHovering(true);
       }
     };
 
@@ -234,6 +240,18 @@ function CustomCursor({
         !related?.closest('[data-cursor="explore"]')
       ) {
         setCursorMode("default");
+      }
+      if (
+        (target?.closest('[data-cursor="target"]') ||
+          target?.closest("a") ||
+          target?.closest("button")) &&
+        !(
+          related?.closest('[data-cursor="target"]') ||
+          related?.closest("a") ||
+          related?.closest("button")
+        )
+      ) {
+        setIsHovering(false);
       }
     };
 

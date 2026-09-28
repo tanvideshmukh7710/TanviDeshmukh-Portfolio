@@ -63,6 +63,7 @@ export const FlipLink = ({
         onClick={onClick}
         target={target}
         rel={rel ?? (target === "_blank" ? "noopener noreferrer" : undefined)}
+        data-cursor="target"
         className={baseClasses}
         style={{
           lineHeight: 0.85,
@@ -77,6 +78,7 @@ export const FlipLink = ({
     <button
       type="button"
       onClick={onClick}
+      data-cursor="target"
       className={baseClasses}
       style={{
         lineHeight: 0.85,

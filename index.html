@@ -17,20 +17,6 @@
       }
     };
   </script>
-  <script>
-    // Robust asset fallback: automatically handles both root / and /public path structures
-    window.addEventListener('error', function(e) {
-      if (e.target && e.target.tagName === 'IMG' && !e.target.dataset.triedFallback) {
-        e.target.dataset.triedFallback = '1';
-        var s = e.target.getAttribute('src') || '';
-        if (s.startsWith('public/')) {
-          e.target.src = s.substring(7);
-        } else if (!s.startsWith('http') && !s.startsWith('/')) {
-          e.target.src = 'public/' + s;
-        }
-      }
-    }, true);
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@300..700&family=Syne:wght@700;800;900&family=Archivo+Black&display=swap" rel="stylesheet">
@@ -698,12 +684,30 @@
         target="_blank" 
         rel="noopener noreferrer"
         data-cursor="target"
-        class="flip-link group text-zinc-900 dark:text-zinc-100 hover:text-[#8b0a0a] dark:hover:text-[#ef4444] relative block overflow-hidden whitespace-nowrap text-5xl sm:text-7xl md:text-8xl lg:text-[105px] font-black uppercase font-sans transition-colors duration-300"
+        class="flip-link group text-zinc-900 dark:text-zinc-100 hover:text-[#8b0a0a] dark:hover:text-[#ef4444] relative block overflow-hidden whitespace-nowrap text-5xl sm:text-7xl md:text-8xl lg:text-[105px] font-black uppercase font-sans transition-colors duration-300 cursor-pointer"
         style="line-height: 0.85;"
         data-text="Linkedin"
       >
-        <div class="flip-letters flex"></div>
-        <div class="flip-letters-hover absolute inset-0 flex"></div>
+        <div class="flip-letters flex">
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 0ms">L</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 25ms">i</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 50ms">n</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 75ms">k</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 100ms">e</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 125ms">d</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 150ms">i</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 175ms">n</span>
+        </div>
+        <div class="flip-letters-hover absolute inset-0 flex">
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 0ms">L</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 25ms">i</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 50ms">n</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 75ms">k</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 100ms">e</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 125ms">d</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 150ms">i</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 175ms">n</span>
+        </div>
       </a>
 
       <!-- FlipLink: Instagram -->
@@ -712,12 +716,32 @@
         target="_blank" 
         rel="noopener noreferrer"
         data-cursor="target"
-        class="flip-link group text-zinc-900 dark:text-zinc-100 hover:text-[#8b0a0a] dark:hover:text-[#ef4444] relative block overflow-hidden whitespace-nowrap text-5xl sm:text-7xl md:text-8xl lg:text-[105px] font-black uppercase font-sans transition-colors duration-300"
+        class="flip-link group text-zinc-900 dark:text-zinc-100 hover:text-[#8b0a0a] dark:hover:text-[#ef4444] relative block overflow-hidden whitespace-nowrap text-5xl sm:text-7xl md:text-8xl lg:text-[105px] font-black uppercase font-sans transition-colors duration-300 cursor-pointer"
         style="line-height: 0.85;"
         data-text="Instagram"
       >
-        <div class="flip-letters flex"></div>
-        <div class="flip-letters-hover absolute inset-0 flex"></div>
+        <div class="flip-letters flex">
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 0ms">I</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 25ms">n</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 50ms">s</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 75ms">t</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 100ms">a</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 125ms">g</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 150ms">r</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 175ms">a</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 200ms">m</span>
+        </div>
+        <div class="flip-letters-hover absolute inset-0 flex">
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 0ms">I</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 25ms">n</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 50ms">s</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 75ms">t</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 100ms">a</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 125ms">g</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 150ms">r</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 175ms">a</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 200ms">m</span>
+        </div>
       </a>
 
       <!-- FlipLink: Gmail -->
@@ -729,8 +753,20 @@
         style="line-height: 0.85;"
         data-text="Gmail"
       >
-        <div class="flip-letters flex"></div>
-        <div class="flip-letters-hover absolute inset-0 flex"></div>
+        <div class="flip-letters flex">
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 0ms">G</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 25ms">m</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 50ms">a</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 75ms">i</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 100ms">l</span>
+        </div>
+        <div class="flip-letters-hover absolute inset-0 flex">
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 0ms">G</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 25ms">m</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 50ms">a</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 75ms">i</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 100ms">l</span>
+        </div>
       </button>
 
       <!-- FlipLink: Phone -->
@@ -742,8 +778,20 @@
         style="line-height: 0.85;"
         data-text="Phone"
       >
-        <div class="flip-letters flex"></div>
-        <div class="flip-letters-hover absolute inset-0 flex"></div>
+        <div class="flip-letters flex">
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 0ms">P</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 25ms">h</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 50ms">o</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 75ms">n</span>
+          <span class="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]" style="transition-delay: 100ms">e</span>
+        </div>
+        <div class="flip-letters-hover absolute inset-0 flex">
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 0ms">P</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 25ms">h</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 50ms">o</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 75ms">n</span>
+          <span class="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0" style="transition-delay: 100ms">e</span>
+        </div>
       </button>
 
     </div>
@@ -1235,6 +1283,125 @@
         });
       });
     }
+
+    // =========================================================
+    // CONTACT MODAL (GMAIL & PHONE POPUP)
+    // =========================================================
+    const contactModal = document.getElementById("contactModal");
+    const contactModalBody = document.getElementById("contactModalBody");
+
+    function openContactModal(type) {
+      if (!contactModal || !contactModalBody) return;
+      if (type === "email") {
+        contactModalBody.innerHTML = `
+          <div class="w-14 h-14 rounded-2xl bg-[#8b0a0a]/10 dark:bg-red-500/15 text-[#8b0a0a] dark:text-red-400 flex items-center justify-center text-2xl mx-auto">
+            ✉️
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold tracking-tight uppercase text-zinc-900 dark:text-white font-sans">
+            Send an Email
+          </h3>
+          <p class="text-sm sm:text-base font-semibold text-zinc-800 dark:text-zinc-200 break-all bg-zinc-50 dark:bg-zinc-800/80 py-3 px-4 rounded-xl border border-zinc-200 dark:border-zinc-700 select-all">
+            tanvideshmukh7710@gmail.com
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 pt-2">
+            <a
+              href="mailto:tanvideshmukh7710@gmail.com"
+              data-cursor="target"
+              class="flex-1 py-3 px-4 rounded-xl bg-[#8b0a0a] hover:bg-[#a10d0d] text-white font-bold text-sm transition-colors flex items-center justify-center cursor-pointer"
+            >
+              Compose Email
+            </a>
+            <button
+              type="button"
+              id="copyEmailBtn"
+              data-cursor="target"
+              onclick="copyToClipboard('tanvideshmukh7710@gmail.com', 'copyEmailBtn', 'Copy Address')"
+              class="flex-1 py-3 px-4 rounded-xl bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-bold text-sm transition-colors flex items-center justify-center cursor-pointer"
+            >
+              Copy Address
+            </button>
+          </div>
+        `;
+      } else {
+        contactModalBody.innerHTML = `
+          <div class="w-14 h-14 rounded-2xl bg-[#8b0a0a]/10 dark:bg-red-500/15 text-[#8b0a0a] dark:text-red-400 flex items-center justify-center text-2xl mx-auto">
+            📞
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold tracking-tight uppercase text-zinc-900 dark:text-white font-sans">
+            Phone Number
+          </h3>
+          <p class="text-xl font-bold text-zinc-900 dark:text-zinc-100 bg-zinc-50 dark:bg-zinc-800/80 py-3 px-4 rounded-xl border border-zinc-200 dark:border-zinc-700 select-all">
+            +91 9106013651
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 pt-2">
+            <a
+              href="tel:+919106013651"
+              data-cursor="target"
+              class="flex-1 py-3 px-4 rounded-xl bg-[#8b0a0a] hover:bg-[#a10d0d] text-white font-bold text-sm transition-colors flex items-center justify-center cursor-pointer"
+            >
+              Call Now
+            </a>
+            <button
+              type="button"
+              id="copyPhoneBtn"
+              data-cursor="target"
+              onclick="copyToClipboard('+919106013651', 'copyPhoneBtn', 'Copy Number')"
+              class="flex-1 py-3 px-4 rounded-xl bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-bold text-sm transition-colors flex items-center justify-center cursor-pointer"
+            >
+              Copy Number
+            </button>
+          </div>
+        `;
+      }
+      contactModal.classList.remove("hidden");
+      contactModal.classList.add("flex");
+    }
+
+    function closeContactModal() {
+      if (!contactModal) return;
+      contactModal.classList.add("hidden");
+      contactModal.classList.remove("flex");
+    }
+
+    function copyToClipboard(text, btnId, defaultText) {
+      navigator.clipboard.writeText(text);
+      const btn = document.getElementById(btnId);
+      if (btn) {
+        btn.textContent = "Copied! ✓";
+        setTimeout(() => {
+          btn.textContent = defaultText;
+        }, 2000);
+      }
+    }
+
+    // FlipLinks animation initialization
+    function initFlipLinks() {
+      document.querySelectorAll(".flip-link").forEach((el) => {
+        const text = el.getAttribute("data-text");
+        if (!text) return;
+        const topDiv = el.querySelector(".flip-letters");
+        const botDiv = el.querySelector(".flip-letters-hover");
+        if (!topDiv || !botDiv) return;
+        if (topDiv.children.length === 0) {
+          topDiv.innerHTML = "";
+          botDiv.innerHTML = "";
+          text.split("").forEach((letter, i) => {
+            const s1 = document.createElement("span");
+            s1.className = "inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]";
+            s1.style.transitionDelay = `${i * 25}ms`;
+            s1.textContent = letter === " " ? "\u00A0" : letter;
+            topDiv.appendChild(s1);
+
+            const s2 = document.createElement("span");
+            s2.className = "inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0";
+            s2.style.transitionDelay = `${i * 25}ms`;
+            s2.textContent = letter === " " ? "\u00A0" : letter;
+            botDiv.appendChild(s2);
+          });
+        }
+      });
+    }
+    initFlipLinks();
   </script>
 </body>
 </html>
